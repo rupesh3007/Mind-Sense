@@ -21,7 +21,7 @@ const flowNodes = [
 
 export default function PrivacyPage() {
   return (
-    <div style={{ padding:"120px 24px 80px", maxWidth:1100, margin:"0 auto" }}>
+    <div className="page-container" style={{ padding:"120px 24px 80px", maxWidth:1100, margin:"0 auto" }}>
 
       <FadeUp>
         <div style={{ textAlign:"center", marginBottom:60 }}>
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
       </FadeUp>
 
       {/* Pillars grid */}
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:20 }}>
+      <div className="responsive-grid responsive-grid--3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:20 }}>
         {pillars.map((p, i) => (
           <FadeUp key={p.title} delay={i * 0.1}>
             <GlassCard style={{ textAlign:"center" }}>

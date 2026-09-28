@@ -27,16 +27,17 @@ export const GlassCard = ({ children, className = "", hover = true, style = {} }
   </motion.div>
 );
 
+const particles = Array.from({ length: 15 }, (_, i) => ({
+  id: i,
+  left: `${Math.random() * 100}%`,
+  duration: `${8 + Math.random() * 12}s`,
+  delay: `${Math.random() * 8}s`,
+  size: Math.random() > 0.7 ? 3 : 2,
+}));
+
 export const Particles = () => {
-  const particles = Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    duration: `${8 + Math.random() * 12}s`,
-    delay: `${Math.random() * 8}s`,
-    size: Math.random() > 0.7 ? 3 : 2,
-  }));
   return (
-    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 0 }}>
+    <div className="particle-layer" style={{ position: "fixed", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 0 }}>
       {particles.map((p) => (
         <div
           key={p.id}

@@ -21,7 +21,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div style={{ padding:"120px 24px 80px", maxWidth:1100, margin:"0 auto" }}>
+    <div className="page-container" style={{ padding:"120px 24px 80px", maxWidth:1100, margin:"0 auto" }}>
 
       <FadeUp>
         <div style={{ textAlign:"center", marginBottom:60 }}>
@@ -32,7 +32,7 @@ export default function ContactPage() {
         </div>
       </FadeUp>
 
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:40 }}>
+      <div className="responsive-grid responsive-grid--contact" style={{ display:"grid", gridTemplateColumns:"1fr 1.4fr", gap:40 }}>
 
         {/* Info */}
         <FadeUp>
@@ -40,14 +40,14 @@ export default function ContactPage() {
             <GlassCard style={{ marginBottom:20 }}>
               <div style={{ fontFamily:"var(--font-mono)", fontSize:"0.65rem", color:"var(--cyan)", marginBottom:12 }}>PROJECT INFO</div>
               <h3 style={{ fontFamily:"var(--font-head)", fontWeight:700, marginBottom:6 }}>MindSense</h3>
-              <p style={{ fontFamily:"var(--font-body)", fontSize:"0.82rem", color:"var(--muted)", marginBottom:12 }}>Smart India Hackathon 2025 · AI &amp; ML Track</p>
+              <p style={{ fontFamily:"var(--font-body)", fontSize:"0.82rem", color:"var(--muted)", marginBottom:12 }}>Hackathon | 2025 · AI &amp; ML Track</p>
               <p style={{ fontFamily:"var(--font-body)", fontSize:"0.82rem", color:"var(--muted)", lineHeight:1.6 }}>
                 AI-Powered Behavioral Intelligence System for Student Mental Health — Built by passionate engineers committed to ethical AI.
               </p>
             </GlassCard>
             {[
               { icon:"📧", label:"Email",       val:"team@mindsense.ai"      },
-              { icon:"🏫", label:"Institution", val:"SIH 2025 Submission"     },
+              { icon:"🏫", label:"Institution", val:"Hackathon | 2025 Submission" },
               { icon:"🔒", label:"Privacy",     val:"DPDP Act Compliant"      },
             ].map((c) => (
               <div key={c.label} style={{ display:"flex", gap:14, alignItems:"center", padding:"12px 0", borderBottom:"1px solid rgba(255,255,255,0.05)" }}>

@@ -18,7 +18,7 @@ const techPills = [
 
 export default function AIEnginePage() {
   return (
-    <div style={{ padding:"120px 24px 80px", maxWidth:1200, margin:"0 auto" }}>
+    <div className="page-container" style={{ padding:"120px 24px 80px", maxWidth:1200, margin:"0 auto" }}>
 
       <FadeUp>
         <div style={{ textAlign:"center", marginBottom:60 }}>
@@ -36,7 +36,7 @@ export default function AIEnginePage() {
       <div style={{ position:"relative" }}>
         {steps.map((step, i) => (
           <FadeUp key={step.title} delay={i * 0.1}>
-            <div style={{ display:"flex", gap:24, marginBottom:16, alignItems:"stretch" }}>
+            <div className="pipeline-step" style={{ display:"flex", gap:24, marginBottom:16, alignItems:"stretch" }}>
               {/* Icon + connector */}
               <div style={{ display:"flex", flexDirection:"column", alignItems:"center", flexShrink:0 }}>
                 <div style={{ width:48, height:48, borderRadius:"50%", background:`${step.color}18`, border:`2px solid ${step.color}66`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"1.2rem", flexShrink:0 }}>
@@ -79,7 +79,7 @@ export default function AIEnginePage() {
 
       {/* Federated Learning */}
       <FadeUp delay={0.6}>
-        <GlassCard className="glow-cyan" style={{ marginTop:40, padding:"32px", display:"grid", gridTemplateColumns:"auto 1fr", gap:24, alignItems:"center" }}>
+        <GlassCard className="glow-cyan responsive-grid responsive-grid--feature" style={{ marginTop:40, padding:"32px", display:"grid", gridTemplateColumns:"auto 1fr", gap:24, alignItems:"center" }}>
           <div style={{ fontSize:"3rem" }}>🌐</div>
           <div>
             <h3 style={{ fontFamily:"var(--font-head)", fontWeight:700, fontSize:"1.2rem", marginBottom:6 }}>Federated Learning Architecture</h3>

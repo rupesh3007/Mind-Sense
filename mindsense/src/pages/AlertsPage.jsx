@@ -14,10 +14,10 @@ const stc = (s) => ({ ACTIVE:"var(--red)", REVIEWING:"var(--yellow)", RESOLVED:"
 
 export default function AlertsPage() {
   return (
-    <div style={{ padding:"120px 24px 80px", maxWidth:1200, margin:"0 auto" }}>
+    <div className="page-container" style={{ padding:"120px 24px 80px", maxWidth:1200, margin:"0 auto" }}>
 
       <FadeUp>
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:40 }}>
+        <div className="mobile-stack alert-header" style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:40 }}>
           <div>
             <Tag>Intelligent Alert System</Tag>
             <h1 style={{ fontFamily:"var(--font-head)", fontSize:"2.6rem", fontWeight:800, letterSpacing:"-0.02em", marginTop:8 }}>
@@ -38,7 +38,7 @@ export default function AlertsPage() {
 
       {/* How it works */}
       <FadeUp delay={0.1}>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginBottom:32 }}>
+        <div className="responsive-grid responsive-grid--4" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginBottom:32 }}>
           {[
             { icon:"👁",  label:"Continuous Monitoring", desc:"AI monitors behavioral signals 24/7" },
             { icon:"🔍", label:"Pattern Analysis",       desc:"Detects abnormal behavioral changes" },
@@ -64,7 +64,7 @@ export default function AlertsPage() {
               whileHover={{ x:4 }}
               transition={{ duration:0.2 }}
             >
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
+              <div className="mobile-stack alert-row" style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", gap:10, alignItems:"center", marginBottom:6 }}>
                     <span style={{ fontFamily:"var(--font-mono)", fontSize:"0.65rem", fontWeight:600, padding:"2px 8px", borderRadius:4, background:`${sc(alert.severity)}18`, color:sc(alert.severity), border:`1px solid ${sc(alert.severity)}44` }}>{alert.severity}</span>

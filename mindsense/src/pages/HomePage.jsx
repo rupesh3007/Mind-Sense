@@ -51,12 +51,12 @@ export default function HomePage({ setPage }) {
         <div style={{ position:"absolute", top:"20%", left:"10%", width:400, height:400, borderRadius:"50%", background:"radial-gradient(circle, rgba(0,212,200,0.08) 0%, transparent 70%)", pointerEvents:"none" }} />
         <div style={{ position:"absolute", bottom:"10%", right:"5%", width:500, height:500, borderRadius:"50%", background:"radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)", pointerEvents:"none" }} />
 
-        <div style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", width:"100%", display:"grid", gridTemplateColumns:"1fr 1fr", gap:60, alignItems:"center" }}>
+        <div className="responsive-grid responsive-grid--hero" style={{ maxWidth:1200, margin:"0 auto", padding:"0 24px", width:"100%", display:"grid", gridTemplateColumns:"1fr 1fr", gap:60, alignItems:"center" }}>
 
           {/* Left copy */}
           <div>
             <motion.div initial={{ opacity:0, x:-30 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.8 }}>
-              <Tag>SIH 2025 · Smart India Hackathon</Tag>
+              <Tag>Hackathon | 2025</Tag>
               <h1 style={{ fontFamily:"var(--font-head)", fontSize:"3.8rem", fontWeight:800, lineHeight:1.1, marginBottom:20, marginTop:8, letterSpacing:"-0.03em" }}>
                 Detect Student{" "}
                 <AnimatePresence mode="wait">
@@ -80,7 +80,7 @@ export default function HomePage({ setPage }) {
               </div>
 
               {/* Stats row */}
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:48 }}>
+              <div className="responsive-grid responsive-grid--stats" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginTop:48 }}>
                 {stats.map((s, i) => (
                   <motion.div
                     key={s.label}
@@ -161,7 +161,7 @@ export default function HomePage({ setPage }) {
             </h2>
           </div>
         </FadeUp>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:24 }}>
+        <div className="responsive-grid responsive-grid--2" style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:24 }}>
           {problems.map((p, i) => (
             <FadeUp key={p.title} delay={i * 0.1}>
               <GlassCard>
@@ -189,7 +189,7 @@ export default function HomePage({ setPage }) {
               </h2>
             </div>
           </FadeUp>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:20 }}>
+          <div className="responsive-grid responsive-grid--4" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:20 }}>
             {solutions.map((s, i) => (
               <FadeUp key={s.title} delay={i * 0.12}>
                 <GlassCard style={{ textAlign:"center" }}>
@@ -205,7 +205,7 @@ export default function HomePage({ setPage }) {
       </section>
 
       {/* ── BENEFITS + CTA ── */}
-      <section style={{ padding:"100px 24px", maxWidth:1200, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"center" }}>
+      <section className="responsive-grid responsive-grid--cta" style={{ padding:"100px 24px", maxWidth:1200, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"center" }}>
         <FadeUp>
           <Tag>Key Benefits</Tag>
           <h2 style={{ fontFamily:"var(--font-head)", fontSize:"2.4rem", fontWeight:800, letterSpacing:"-0.02em", marginTop:8, marginBottom:32 }}>

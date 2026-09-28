@@ -11,36 +11,25 @@ const NAV_ITEMS = [
   { label: "Contact", page: "contact" },
 ];
 
-export default function Navbar({
-  page,
-  setPage,
-  isAdminAuthenticated,
-  onLogout,
-  onAdminClick,
-}) {
+export default function Navbar({ page, setPage }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const nextScrolled = window.scrollY > 20;
+      setScrolled((current) => current === nextScrolled ? current : nextScrolled);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleAdminNav = () => {
-    if (onAdminClick) {
-      onAdminClick();
-    } else if (isAdminAuthenticated) {
-      setPage("admin");
-    } else {
-      setPage("login");
-    }
-  };
 
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="site-nav"
       style={{
         position: "fixed",
         top: 0,
@@ -60,7 +49,7 @@ export default function Navbar({
     >
       {/* Logo */}
       <button
-        onClick={() => setPage("home")}
+        onClick={() => { setPage("home"); setMenuOpen(false); }}
         style={{
           display: "flex",
           alignItems: "center",
@@ -101,11 +90,11 @@ export default function Navbar({
       </button>
 
       {/* Desktop Nav */}
-      <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+      <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 28 }}>
         {NAV_ITEMS.map((item) => (
           <button
             key={item.page}
-            onClick={() => setPage(item.page)}
+            onClick={() => { setPage(item.page); setMenuOpen(false); }}
             className={`nav-link ${page === item.page ? "active" : ""}`}
           >
             {item.label}
@@ -114,63 +103,43 @@ export default function Navbar({
       </div>
 
       {/* Auth Buttons */}
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        {isAdminAuthenticated ? (
-          <>
-            <button
-              className="btn-primary"
-              onClick={() => setPage("admin")}
-              style={{
-                padding: "8px 16px",
-                fontSize: "0.75rem",
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-                background:
-                  page === "admin"
-                    ? "linear-gradient(135deg,#00d4c8,#00a8ff)"
-                    : "rgba(0, 212, 200, 0.15)",
-                color: page === "admin" ? "#000" : "var(--cyan)",
-                border: "1px solid rgba(0, 212, 200, 0.4)",
-              }}
-            >
-              <span>🛡️</span> Admin Panel
-            </button>
-            <button
-              onClick={onLogout}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "var(--muted)",
-                padding: "8px 12px",
-                borderRadius: 8,
-                fontSize: "0.72rem",
-                cursor: "pointer",
-                fontFamily: "var(--font-mono)",
-              }}
-            >
-              Exit
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              className="btn-ghost"
-              onClick={() => setPage("login")}
-              style={{ padding: "8px 16px", fontSize: "0.75rem" }}
-            >
-              Login
-            </button>
-            <button
-              className="btn-primary"
-              onClick={handleAdminNav}
-              style={{ padding: "8px 16px", fontSize: "0.75rem" }}
-            >
-              Admin
-            </button>
-          </>
-        )}
+      <div className="nav-auth" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <button
+          className="btn-ghost"
+          onClick={() => setPage("login")}
+          style={{ padding: "8px 16px", fontSize: "0.75rem" }}
+        >
+          Login
+        </button>
       </div>
+
+      <button
+        type="button"
+        className="mobile-menu-toggle"
+        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {menuOpen && (
+        <div id="mobile-navigation" className="mobile-nav-menu">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.page}
+              className={`nav-link mobile-nav-link ${page === item.page ? "active" : ""}`}
+              onClick={() => { setPage(item.page); setMenuOpen(false); }}
+            >
+              {item.label}
+            </button>
+          ))}
+          <button className="nav-link mobile-nav-link" onClick={() => { setPage("login"); setMenuOpen(false); }}>Login</button>
+        </div>
+      )}
     </motion.nav>
   );
 }

@@ -73,10 +73,10 @@ export default function DashboardPage() {
   }
 
   return (
-    <div style={{ padding:"120px 24px 80px", maxWidth:1300, margin:"0 auto" }}>
+    <div className="page-container" style={{ padding:"120px 24px 80px", maxWidth:1300, margin:"0 auto" }}>
 
       <FadeUp>
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:40 }}>
+        <div className="mobile-stack dashboard-header" style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:40 }}>
           <div>
             <Tag>Live Analytics</Tag>
             <h1 style={{ fontFamily:"var(--font-head)", fontSize:"2.6rem", fontWeight:800, letterSpacing:"-0.02em", marginTop:8 }}>
@@ -92,7 +92,7 @@ export default function DashboardPage() {
       </FadeUp>
 
       {/* Summary cards */}
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginBottom:28 }}>
+      <div className="responsive-grid responsive-grid--4" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:16, marginBottom:28 }}>
         {[
           { label:"Total Monitored", value:"2,847", icon:"👥", change:"+12 today",         color:"var(--cyan)"   },
           { label:"High Risk",       value:"43",    icon:"🔴", change:"↑ 3 from yesterday", color:"var(--red)"    },
@@ -189,7 +189,7 @@ export default function DashboardPage() {
 
           <GlassCard hover={false} style={{ marginBottom: 20 }}>
             <div style={{ fontFamily:"var(--font-mono)", fontSize:"0.65rem", color:"var(--cyan)", letterSpacing:"0.12em", marginBottom: 12 }}>POST /api/items</div>
-            <form onSubmit={handleAddItem} style={{ display:"grid", gridTemplateColumns:"1fr 120px 1fr auto", gap:12, alignItems:"end" }}>
+            <form className="responsive-grid responsive-grid--form" onSubmit={handleAddItem} style={{ display:"grid", gridTemplateColumns:"1fr 120px 1fr auto", gap:12, alignItems:"end" }}>
               <div>
                 <label style={{ display:"block", fontFamily:"var(--font-mono)", fontSize:"0.6rem", color:"var(--muted)", marginBottom:4 }}>TITLE</label>
                 <input

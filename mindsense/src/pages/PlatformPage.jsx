@@ -31,7 +31,7 @@ export default function PlatformPage() {
   const days           = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return (
-    <div style={{ padding: "120px 24px 80px", maxWidth: 1300, margin: "0 auto" }}>
+    <div className="page-container" style={{ padding: "120px 24px 80px", maxWidth: 1300, margin: "0 auto" }}>
       <FadeUp>
         <Tag>Student Wellbeing Platform</Tag>
         <h1 style={{ fontFamily:"var(--font-head)", fontSize:"2.8rem", fontWeight:800, letterSpacing:"-0.02em", marginTop:8, marginBottom:8 }}>
@@ -43,7 +43,7 @@ export default function PlatformPage() {
       </FadeUp>
 
       {/* Top 3 cards */}
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:20, marginBottom:24 }}>
+      <div className="responsive-grid responsive-grid--3" style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:20, marginBottom:24 }}>
 
         {/* Emotional Status */}
         <FadeUp>
@@ -131,7 +131,7 @@ export default function PlatformPage() {
       </div>
 
       {/* Bottom 2 cards */}
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20 }}>
+      <div className="responsive-grid responsive-grid--2" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:20 }}>
 
         {/* Screen Time Chart */}
         <FadeUp delay={0.3}>

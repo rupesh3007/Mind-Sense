@@ -10,14 +10,14 @@ export default function Footer({ setPage }) {
     },
     {
       title: "Access",
-      links: [["Student Login","login"],["Admin Panel","admin"],["Contact Us","contact"]],
+      links: [["Student Login","login"],["Contact Us","contact"]],
     },
   ];
 
   return (
     <footer style={{ borderTop: "1px solid var(--border)", padding: "48px 24px 32px", marginTop: 80 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 40 }}>
+        <div className="responsive-grid responsive-grid--footer" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 40 }}>
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
@@ -35,7 +35,7 @@ export default function Footer({ setPage }) {
               AI-Powered Behavioral Intelligence System for early detection of student stress. Privacy-first. Research-backed.
             </p>
             <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--muted)", marginTop: 12 }}>
-              SIH 2025 · Smart India Hackathon
+              Hackathon | 2025
             </p>
           </div>
 
@@ -59,9 +59,9 @@ export default function Footer({ setPage }) {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--muted)" }}>
-            © 2025 MindSense · All rights reserved · Built for SIH 2025
+            © 2025 MindSense · All rights reserved · Built for 2025
           </span>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--muted)" }}>
             We analyze patterns, not people. 🔐
