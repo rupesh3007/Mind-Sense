@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build --prefix mindsense",
+  "outputDirectory": "mindsense/build",
+  "installCommand": "npm install --prefix mindsense",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

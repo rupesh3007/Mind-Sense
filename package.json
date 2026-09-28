@@ -1,0 +1,14 @@
+{
+  "name": "mindsense-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MindSense full-stack workspace (React Frontend + Express Backend)",
+  "scripts": {
+    "build": "npm run build --prefix mindsense",
+    "start": "npm start --prefix mindsense",
+    "start:frontend": "npm start --prefix mindsense",
+    "start:backend": "npm start --prefix backend",
+    "seed": "npm run seed --prefix backend",
+    "install:all": "npm install --prefix mindsense && npm install --prefix backend"
+  }
+}
